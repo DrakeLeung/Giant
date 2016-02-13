@@ -20,14 +20,14 @@ const common = {
   output: {
     path: PATHS.build,
     filename: 'giant.js',
-    library: 'Giant',
+    library: 'G',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
 
   plugins: [
     new HtmlwebpackPlugin({
-      title: 'ES2015 Start Kit'
+      template: 'index.html'
     })
   ],
 
