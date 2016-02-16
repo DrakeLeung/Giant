@@ -1,10 +1,14 @@
 import G from './giant'
 
 import './manipulation/insert'
-// import './traversing/get'
+import './traversing/get'
 
-// const foo = G('#foo')
-// const firstP = G('p:nth-child(3)')
-//
-// console.log(G.prevAll(firstP))
+// import jsonp from './ajax/jsonp'
+import get from './ajax/get'
+
+get(
+  'https://www.reddit.com/r/javascript/top.json'
+)
+  .then(res => console.log(res))
+
 module.exports = G

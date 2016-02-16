@@ -5,8 +5,8 @@
       "standard"
     ],
 
-    "globals": {
-      "document": true
+    "env": {
+      "browser": true
     },
 
     "rules": {
