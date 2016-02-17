@@ -1,4 +1,4 @@
-# Giant
+# Giant [![Build Status](https://travis-ci.org/DrakeLeung/Giant.svg?branch=master)](https://travis-ci.org/DrakeLeung/Giant)
 a modern jQuery, but useless actually :yum:
 
 ## Feature
