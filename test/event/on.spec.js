@@ -3,7 +3,9 @@ import trigger from '../../src/event/trigger'
 
 describe('add event listener', () => {
   const body = document.body
-  const handler = (e) => e.target.innerHTML = 'Hello World'
+  const handler = (e) => {
+    e.target.innerHTML = 'Hello World'
+  }
 
   beforeEach(() => {
     on(body, 'click', handler)
