@@ -32,14 +32,6 @@ const common = {
   ],
 
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loaders: ['eslint'],
-        include: PATHS.src
-      }
-    ],
-
     loaders: [
       {
         loaders: ['style', 'css'],
@@ -72,7 +64,17 @@ if (TARGET === 'start' || !TARGET) {
 
     plugins: [
       new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+
+    module: {
+      preLoaders: [
+        {
+          test: /\.js$/,
+          loaders: ['eslint'],
+          include: PATHS.src
+        }
+      ]
+    }
   })
 }
 
@@ -80,4 +82,8 @@ if (TARGET === 'build') {
   module.exports = merge(common, {
     devtool: 'eval'
   })
+}
+
+if (TARGET === 'test') {
+  module.exports = common
 }
