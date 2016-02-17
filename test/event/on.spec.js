@@ -5,7 +5,9 @@ describe('add event listener', () => {
   const body = document.body
   const handler = (e) => e.target.innerHTML = 'Hello World'
 
-  on(body, 'click', handler)
+  beforeEach(() => {
+    on(body, 'click', handler)
+  })
 
   it('trigger the click event', () => {
     trigger(body, 'click')

@@ -11,7 +11,9 @@ describe('remove event listener', () => {
     )
   }
 
-  on(body, 'click', handler)
+  beforeEach(() => {
+    on(body, 'click', handler)
+  })
 
   it('should be null', () => {
     off(body, 'click', handler)

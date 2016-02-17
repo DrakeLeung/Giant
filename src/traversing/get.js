@@ -1,5 +1,3 @@
-import G from '../giant'
-
 export const parent = el =>
   el.parentNode
 
@@ -35,10 +33,3 @@ export const nextAll = el => {
 
   return result
 }
-
-G.parent = parent
-G.children = children
-G.prev = prev
-G.prevAll = prevAll
-G.next = next
-G.nextAll = nextAll
