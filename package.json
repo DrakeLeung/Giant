@@ -6,7 +6,7 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "lint": "eslint . --ext .js || true",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start ./karma.conf.js"
   },
   "keywords": [
     "es2015",
@@ -27,6 +27,11 @@
     "eslint": "^1.10.3",
     "eslint-loader": "^1.2.1",
     "html-webpack-plugin": "^2.7.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7",
+    "karma-webpack": "^1.7.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1",

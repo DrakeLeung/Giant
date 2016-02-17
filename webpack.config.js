@@ -20,26 +20,18 @@ const common = {
   output: {
     path: PATHS.build,
     filename: 'giant.js',
-    library: 'Giant',
+    library: 'G',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
 
   plugins: [
     new HtmlwebpackPlugin({
-      title: 'ES2015 Start Kit'
+      template: 'index.html'
     })
   ],
 
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loaders: ['eslint'],
-        include: PATHS.src
-      }
-    ],
-
     loaders: [
       {
         loaders: ['style', 'css'],
@@ -72,7 +64,17 @@ if (TARGET === 'start' || !TARGET) {
 
     plugins: [
       new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+
+    module: {
+      preLoaders: [
+        {
+          test: /\.js$/,
+          loaders: ['eslint'],
+          include: PATHS.src
+        }
+      ]
+    }
   })
 }
 
@@ -80,4 +82,8 @@ if (TARGET === 'build') {
   module.exports = merge(common, {
     devtool: 'eval'
   })
+}
+
+if (TARGET === 'test') {
+  module.exports = common
 }
