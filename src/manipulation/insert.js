@@ -3,16 +3,26 @@ import {
   isString
 } from '../helper/util'
 
-import G from '../giant'
-
 const nodeToHtmlString = node =>
   node.outerHTML
 
+/**
+ * nodeListToHtmlString: convert nodeList to html string
+ *
+ * @param {nodeList} $nodeList []
+ * @return string
+ */
 const nodeListToHtmlString = nodeList =>
   [...nodeList].reduce((prev, current) => {
     return prev + nodeToHtmlString(current)
   }, '')
 
+/**
+ * makeSureHtmlString: convert node/nodeList to html string
+ *
+ * @param {string/node/nodeList} $valee []
+ * @return string
+ */
 const makeSureHtmlString = value =>
   isString(value)
   ? value
@@ -20,6 +30,14 @@ const makeSureHtmlString = value =>
     ? nodeToHtmlString(value)
     : nodeListToHtmlString(value)
 
+/**
+ * insertHtml: insert the given html stirng in the given position
+ *
+ * @param {element} $element    [insert consider of this element]
+ * @param {string}  $position   [beforebegin, afterbegin, beforeend, afterend]
+ * @param {string}  $htmlString [html string is about to insert]
+ * @return undefined
+ */
 const insertHtml = (element, position, htmlString) =>
   element.insertAdjacentHTML(
     position, makeSureHtmlString(htmlString)
@@ -37,8 +55,3 @@ export const append = (element, htmlString) =>
 export const after = (element, htmlString) => {
   insertHtml(element, 'afterend', htmlString)
 }
-
-G.before = before
-G.prepend = prepend
-G.append = append
-G.after = after
