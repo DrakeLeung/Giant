@@ -1,14 +1,16 @@
 import G from './giant'
 
-import './manipulation/insert'
-import './traversing/get'
+import {on, off, trigger, ready} from './event'
 
-// import jsonp from './ajax/jsonp'
-import get from './ajax/get'
+const foo = G('#foo')
 
-get(
-  'https://www.reddit.com/r/javascript/top.json'
-)
-  .then(res => console.log(res))
+on(foo, 'eat', (e) => console.log(e.detail))
+
+on(foo, 'click', () => {
+  console.log('clicked foo')
+  trigger(foo, 'eat', {name: 'peer'})
+})
+
+trigger(foo, 'click')
 
 module.exports = G
